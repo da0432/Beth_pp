@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BETH | Official Idol Profile</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+:root {
+  --pink: #e9a8bd;
+  --pale: #fff7f9;
+  --ink: #4d3b42;
+  --muted: #a38b94;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fffdfd;
+  color: var(--ink);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+a { color: inherit; text-decoration: none; }
+header {
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f4e8ec;
+  background: rgba(255,253,253,.95);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+nav { display: flex; gap: 24px; font-size: 10px; letter-spacing: 2px; }
+.hero {
+  min-height: 600px;
+  padding: 65px 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+  background: linear-gradient(135deg,#fff9fb,#fcebf1 55%,#fff8fa);
+  overflow: hidden;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #b77b91;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(60px,10vw,108px);
+  line-height: .95;
+  font-weight: 400;
+  letter-spacing: -3px;
+  margin: 22px 0;
+}
+.hero h2 { font-size: 16px; font-weight: 400; letter-spacing: 3px; }
+.hero p { font-size: 13px; line-height: 2.2; color: #947b85; }
+.hero-art {
+  min-height: 410px;
+  border: 1px solid #eac6d3;
+  outline: 8px solid rgba(255,255,255,.55);
+  outline-offset: -18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(ellipse,#fff 0%,#f9dfe8 72%,#f5d1df 100%);
+  position: relative;
+}
+.hero-art::before, .hero-art::after {
+  content: "✧";
+  position: absolute;
+  color: #c98ba3;
+  font-size: 32px;
+}
+.hero-art::before { top: 38px; left: 38px; }
+.hero-art::after { bottom: 38px; right: 38px; }
+.art-heart { font-size: 92px; color: #d88fa9; }
+.art-name { font-family: 'Playfair Display',serif; font-size: 34px; letter-spacing: 5px; }
+.art-caption { font-size: 9px; letter-spacing: 4px; margin-top: 12px; color: #a8798b; }
+section { padding: 95px 9%; }
+.section-top { text-align: center; margin-bottom: 48px; }
+.section-top small { color: #c28ca0; letter-spacing: 4px; font-size: 10px; }
+.section-top h2 {
+  font-family: 'Playfair Display',serif;
+  font-weight: 400;
+  font-size: 42px;
+  margin: 13px 0;
+}
+.section-top p { font-size: 12px; color: var(--muted); }
+.profile {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 65px;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
+}
+.profile-visual {
+  aspect-ratio: 3/4;
+  background: linear-gradient(150deg,#fff5f8,#f4d8e3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #f0d9e1;
+}
+.profile-visual span { font-size: 70px; }
+.profile-visual p { font-family: 'Playfair Display',serif; letter-spacing: 4px; }
+.profile h3 { font-family: 'Playfair Display',serif; font-size: 38px; font-weight: 400; }
+.profile-desc { color: #947f87; line-height: 2; font-size: 13px; }
+table { border-collapse: collapse; width: 100%; margin-top: 25px; font-size: 12px; }
+td { padding: 14px 5px; border-bottom: 1px solid #f1e5e9; }
+td:first-child { color: #b27b91; width: 35%; letter-spacing: 1px; }
+.units { background: #fff8fa; }
+.unit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; max-width: 1000px; margin: auto; }
+.unit {
+  padding: 35px;
+  background: white;
+  border: 1px solid #f0e0e6;
+  text-align: center;
+}
+.unit-symbol { font-size: 42px; margin: 10px 0 20px; }
+.unit small { font-size: 9px; letter-spacing: 3px; color: #b78398; }
+.unit h3 { font-family: 'Playfair Display',serif; font-weight: 400; font-size: 30px; margin: 12px 0; }
+.unit p { font-size: 12px; line-height: 2; color: #947f87; }
+.palette { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
+.dot { width: 20px; height: 20px; border-radius: 50%; border: 1px solid #eee; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; max-width: 900px; margin: auto; }
+.gallery-tile {
+  aspect-ratio: 3/4;
+  background: linear-gradient(150deg,#fff8fa,#f4d9e4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #b78398;
+  text-align: center;
+  font-size: 12px;
+}
+.gallery-tile span { font-size: 42px; margin-bottom: 15px; }
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  border-top: 1px solid #f3e5ea;
+  color: #a9919a;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+@media(max-width:650px) {
+  header { padding: 0 5%; height: 65px; }
+  nav { gap: 12px; font-size: 9px; letter-spacing: 1px; }
+  .logo { font-size: 20px; letter-spacing: 3px; }
+  .hero { grid-template-columns: 1fr; padding: 55px 7%; gap: 30px; }
+  .hero-art { min-height: 300px; }
+  section { padding: 65px 7%; }
+  .profile { grid-template-columns: 1fr; gap: 25px; }
+  .profile-visual { aspect-ratio: 4/3; }
+  .unit-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#">BETH</a>
+  <nav>
+    <a href="#profile">PROFILE</a>
+    <a href="#units">UNITS</a>
+    <a href="#gallery">GALLERY</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">OFFICIAL IDOL PROFILE</div>
+      <h1>Beth</h1>
+      <h2>Strawberry Cake Idol ♡</h2>
+      <p>
+        A little sweetness, a little sparkle.<br>
+        오늘도 가장 사랑스러운 무대를 선물할게요.
+      </p>
+    </div>
+    <div class="hero-art">
+      <div class="art-heart">♡</div>
+      <div class="art-name">Beth</div>
+      <div class="art-caption">SWEET · SOFT · SPARKLING</div>
+    </div>
+  </div>
+
+  <section id="profile">
+    <div class="section-top">
+      <small>01 — ABOUT HER</small>
+      <h2>Profile</h2>
+      <p>Meet the girl behind the sweetest stage.</p>
+    </div>
+    <div class="profile">
+      <div class="profile-visual">
+        <span>🎀</span>
+        <p>MY SWEET IDOL</p>
+      </div>
+      <div>
+        <div class="eyebrow">SILKY HEART</div>
+        <h3>Beth Orwell</h3>
+        <p class="profile-desc">
+          부드러운 미소와 섬세한 퍼포먼스로 마음을 사로잡는 아이돌.
+          발레를 그만둔 뒤 새로운 무대에서 자신만의 빛을 찾아가고 있다.
+          파스텔 컬러와 레이스, 사랑스러운 프릴을 가장 좋아한다.
+        </p>
+        <table>
+          <tr><td>AGE</td><td>18</td></tr>
+          <tr><td>IMAGE COLOR</td><td>Strawberry Pink & White</td></tr>
+          <tr><td>BRAND</td><td>Silky Heart</td></tr>
+          <tr><td>CHARM</td><td>Gentle Smile · Elegant Dance</td></tr>
+          <tr><td>CONCEPT</td><td>Strawberry Cake Princess</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="units" id="units">
+    <div class="section-top">
+      <small>02 — SPECIAL STAGES</small>
+      <h2>Units</h2>
+      <p>Two different flavors, one sweet dream.</p>
+    </div>
+    <div class="unit-grid">
+      <article class="unit">
+        <div class="unit-symbol">୨୧</div>
+        <small>PASTEL PRINCESS UNIT</small>
+        <h3>Bonbon Melody</h3>
+        <p>
+          Beth × Chloe<br>
+          솜사탕처럼 포근하고 사탕처럼 달콤한 두 사람의 하모니.
+          핑크와 스카이블루가 어우러지는 파스텔 프린세스 유닛.
+        </p>
+        <div class="palette">
+          <span class="dot" style="background:#efb4cb"></span>
+          <span class="dot" style="background:#a9dff0"></span>
+          <span class="dot" style="background:#fff"></span>
+        </div>
+      </article>
+      <article class="unit">
+        <div class="unit-symbol">♡</div>
+        <small>SWEET TRIO UNIT</small>
+        <h3>Cantata Split</h3>
+        <p>
+          Beth × Sherbet × Apollo<br>
+          딸기, 바닐라, 초콜릿의 완벽한 조합.
+          서로 다른 매력이 하나의 디저트처럼 어우러지는 트리오.
+        </p>
+        <div class="palette">
+          <span class="dot" style="background:#efb4cb"></span>
+          <span class="dot" style="background:#f7e5a6"></span>
+          <span class="dot" style="background:#9b705e"></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-top">
+      <small>03 — HER MOMENTS</small>
+      <h2>Gallery</h2>
+      <p>A collection of Beth's lovely stages and outfits.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile"><span>✧</span>STAGE LOOK</div>
+      <div class="gallery-tile"><span>୨୧</span>PASTEL DREAM</div>
+      <div class="gallery-tile"><span>♡</span>SWEET MOMENT</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  BETH'S IDOL ARCHIVE · MADE WITH LOVE ♡
+</footer>
+</body>
+</html>
