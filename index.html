@@ -272,7 +272,7 @@ footer {
     <div class="unit-grid">
       <article class="unit">
         
-<div class="slider">
+<div class="slider" id="slider-bonbon">
   <button class="prev" onclick="moveSlide(-1)">❮</button>
 
   <div class="slides">
@@ -314,27 +314,36 @@ footer {
 <div class="slider">
   <button class="prev" onclick="moveSlide(-1)">❮</button>
 
-  <div class="slides">
+  <div class="slider" id="slider-cantata">
     <img src="assets/Cansupu1.png" alt="CSP1">
-    <img src="assets/Cansupu2.jpg" alt="CSP2">
+    <img src="assets/Cansupu2.png" alt="CSP2">
   </div>
 
   <button class="next" onclick="moveSlide(1)">❯</button>
 </div>
-
+  
 <script>
-  let currentSlide = 0;
+  document.querySelectorAll(".slider").forEach((slider) => {
+    let currentSlide = 0;
+    const slides = slider.querySelectorAll(".slides img");
 
-  function moveSlide(direction) {
-    const slides = document.querySelectorAll(".slides img");
-    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
 
-    slides.forEach((slide, index) => {
-      slide.style.display = index === currentSlide ? "block" : "none";
-    });
-  }
+      slides.forEach((slide, i) => {
+        slide.style.display =
+          i === currentSlide ? "block" : "none";
+      });
+    }
 
-  moveSlide(0);
+    slider.querySelector(".prev").onclick = () =>
+      showSlide(currentSlide - 1);
+
+    slider.querySelector(".next").onclick = () =>
+      showSlide(currentSlide + 1);
+
+    showSlide(0);
+  });
 </script>
 
   <small>SWEET TRIO UNIT</small>
