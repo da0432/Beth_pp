@@ -323,6 +323,36 @@ footer {
 </div>
   
 <script>
+  let currentSlide = 0;
+
+  function moveSlide(direction) {
+    const slides = document.querySelectorAll(".slides img");
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+
+    slides.forEach((slide, index) => {
+      slide.style.display = index === currentSlide ? "block" : "none";
+    });
+  }
+
+  moveSlide(0);
+</script>
+
+  <small>SWEET TRIO UNIT</small>
+  <h3>Cantata Split</h3>
+        <p>
+          Beth × Sherbet × Apollo<br>
+          딸기, 바닐라, 초콜릿의 완벽한 조합.
+          달콤한 디저트와 같은 3인조 유닛.
+        </p>
+        <div class="palette">
+          <span class="dot" style="background:#efb4cb"></span>
+          <span class="dot" style="background:#f7e5a6"></span>
+          <span class="dot" style="background:#9b705e"></span>
+        </div>
+      </article>
+    </div>
+  </section>
+<script>
   document.querySelectorAll(".slider").forEach((slider) => {
     let currentSlide = 0;
     const slides = slider.querySelectorAll(".slides img");
@@ -345,23 +375,6 @@ footer {
     showSlide(0);
   });
 </script>
-
-  <small>SWEET TRIO UNIT</small>
-  <h3>Cantata Split</h3>
-        <p>
-          Beth × Sherbet × Apollo<br>
-          딸기, 바닐라, 초콜릿의 완벽한 조합.
-          달콤한 디저트와 같은 3인조 유닛.
-        </p>
-        <div class="palette">
-          <span class="dot" style="background:#efb4cb"></span>
-          <span class="dot" style="background:#f7e5a6"></span>
-          <span class="dot" style="background:#9b705e"></span>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <section id="gallery">
     <div class="section-top">
       <small>03 — HER MOMENTS</small>
